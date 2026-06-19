@@ -32,6 +32,7 @@ skills/
   write-ticket.md           # Skill: viết full ticket cho node/action/trigger mới
   write-user-story.md       # Skill: viết delta ticket cho node đã có
   clarify-feature.md        # Skill: làm rõ / brainstorm feature trước khi viết ticket
+  review-ticket.md          # Skill: review ticket đã viết theo 5 nhóm phân tích
 
 specs/[tên-node]/
   final-ticket.md           # Output ticket sau khi viết xong
@@ -48,6 +49,7 @@ specs/[tên-node]/
 | `core/product-context.md` | Luôn giữ trong đầu — là nền tảng mọi quyết định BA |
 | `core/memory.md` | Đọc trước khi viết bất kỳ ticket nào — chứa rules đã confirm |
 | `core/ba-behavier.md` | Khi cần chuẩn hoá terminology, output mode, hoặc tone |
+| `references/validation-standard.md` | Khi viết ticket có input fields, conditional fields, hoặc validation rules |
 
 ---
 
@@ -69,6 +71,7 @@ specs/[tên-node]/
 - `references/input-output-conventions.md` — quy ước input/output
 - `references/error-message-catalog.md` — catalog error messages
 - `references/sample-good-tickets.md` — ví dụ ticket chất lượng tốt
+- `references/validation-standard.md` — node structure (4-step), field validation rules, binary file spec, UI label naming
 
 ---
 
@@ -90,9 +93,9 @@ Các rule này áp dụng cho MỌI ticket — không được bỏ qua:
 
 3. **Dropdown options — Single Source of Truth:** Options chỉ mô tả MỘT LẦN trong AC (embed table). KHÔNG liệt kê lại ở Inputs, Business Rules, hoặc chỗ khác.
 
-5. **AI nodes (OpenAI, Gemini, Anthropic, AI Generic):** Retry = "Không retry. Chỉ dùng cơ chế retry node của hệ thống." Session ID = "Follow theo standard Ticket MART-1885: Session ID Field Spec - (AI Nodes)."
+4. **AI nodes (OpenAI, Gemini, Anthropic, AI Generic):** Retry = "Không retry. Chỉ dùng cơ chế retry node của hệ thống." Session ID = "Follow theo standard Ticket MART-1885: Session ID Field Spec - (AI Nodes)."
 
-6. **Storage cloud:** S3. Không define lại retry count/backoff/status code nếu dùng lại system logic.
+5. **Storage cloud:** S3. Không define lại retry count/backoff/status code nếu dùng lại system logic.
 
 ---
 

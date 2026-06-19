@@ -82,18 +82,18 @@ Khi viết Inputs section trong ticket, dùng format sau:
 
 **For Actions:**
 
-| Field | Type | Required | Default | Manual Input | Expression | Description |
-|---|---|---|---|---|---|---|
-| Connection | Connected Account | Yes | None | No | No | Dùng lại logic Connected Account hiện có. |
-| File ID | Text input | Conditional | None | Yes | Yes | Required khi Input Type = File ID. |
-| Speed | Dropdown | No | Normal | No | No | Options: Slow, Normal, Fast. |
+| Field | Type | Required | Default | Expression | Description |
+|---|---|---|---|---|---|
+| Connection | Connected Account | Yes | None | No | Dùng lại logic Connected Account hiện có. |
+| File ID | Text input | Conditional | None | Yes | Required khi Input Type = File ID. |
+| Speed | Dropdown | No | Normal | No | Options: Slow, Normal, Fast. |
 
 **For Triggers:**
 
-| Field | Type | Required | Default | Static Selection | Manual Input | Mapped Variable | Notes |
-|---|---|---|---|---|---|---|---|
-| Connection | Connected Account | Yes | None | Yes | No | No | — |
-| Calendar Selection Mode | Dropdown | Yes | All my Calendars | Yes | No | No | — |
+| Field | Type | Required | Default | Mapped Variable | Notes |
+|---|---|---|---|---|---|
+| Connection | Connected Account | Yes | None | No | — |
+| Calendar Selection Mode | Dropdown | Yes | All my Calendars | No | — |
 
 ---
 

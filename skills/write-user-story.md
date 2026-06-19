@@ -88,6 +88,8 @@ Dùng template trong section "Output Template" bên dưới. Tuân theo format A
 
 Tuân theo error message catalog `references/error-message-catalog.md` cho các error mới.
 
+Tham chiếu `references/sample-good-user-stories.md` để đối chiếu với ví dụ delta ticket chất lượng tốt.
+
 ### Bước 6: Lưu file
 
 Lưu ticket vào:
