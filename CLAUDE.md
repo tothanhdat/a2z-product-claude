@@ -25,14 +25,15 @@ references/
   ticket-template-lean.md   # Cấu trúc ticket chuẩn + AC format rules
   input-output-conventions.md
   error-message-catalog.md
-  sample-good-tickets.md
+  sample-good-tickets.md    # Ví dụ full ticket chất lượng tốt (dùng cho write-ticket)
+  sample-good-user-stories.md # Ví dụ delta ticket chất lượng tốt (dùng cho write-user-story)
   validation-standard.md
 
 skills/
-  write-ticket.md           # Skill: viết full ticket cho node/action/trigger mới
-  write-user-story.md       # Skill: viết delta ticket cho node đã có
-  clarify-feature.md        # Skill: làm rõ / brainstorm feature trước khi viết ticket
-  review-ticket.md          # Skill: review ticket đã viết theo 5 nhóm phân tích
+  write-ticket/SKILL.md     # Skill: viết full ticket cho node/action/trigger mới
+  write-user-story/SKILL.md # Skill: viết delta ticket cho node đã có
+  clarify-feature/SKILL.md  # Skill: làm rõ / brainstorm feature trước khi viết ticket
+  review-ticket/SKILL.md    # Skill: review ticket đã viết theo 5 nhóm phân tích
 
 specs/[tên-node]/
   final-ticket.md           # Output ticket sau khi viết xong
@@ -57,29 +58,40 @@ specs/[tên-node]/
 
 | Skill | Khi nào dùng | Instruction |
 |---|---|---|
-| `clarify-feature` | Làm rõ / brainstorm feature trước khi viết ticket | `skills/clarify-feature.md` |
-| `write-ticket` | Viết full ticket cho node/action/trigger MỚI hoàn toàn | `skills/write-ticket.md` |
-| `write-user-story` | Viết delta ticket cho node/action/trigger đã có | `skills/write-user-story.md` |
-| `review-ticket` | Review ticket đã viết, tìm vấn đề feasibility/ambiguity/risk | `skills/review-ticket.md` |
+| `clarify-feature` | Làm rõ / brainstorm feature trước khi viết ticket | `skills/clarify-feature/SKILL.md` |
+| `write-ticket` | Viết full ticket cho node/action/trigger MỚI hoàn toàn | `skills/write-ticket/SKILL.md` |
+| `write-user-story` | Viết delta ticket cho node/action/trigger đã có | `skills/write-user-story/SKILL.md` |
+| `review-ticket` | Review ticket đã viết, tìm vấn đề feasibility/ambiguity/risk | `skills/review-ticket/SKILL.md` |
 
 ---
 
 ## References — Đọc khi viết ticket
 
 - `references/existing-nodes.md` — tránh duplicate, reuse pattern
-- `references/ticket-template-lean.md` — cấu trúc ticket chuẩn
+- `references/ticket-template-lean.md` — cấu trúc ticket chuẩn (source of truth cho AC format, language rules, validation behavior, error handling)
 - `references/input-output-conventions.md` — quy ước input/output
 - `references/error-message-catalog.md` — catalog error messages
-- `references/sample-good-tickets.md` — ví dụ ticket chất lượng tốt
+- `references/sample-good-tickets.md` — ví dụ full ticket chất lượng tốt
+- `references/sample-good-user-stories.md` — ví dụ delta ticket chất lượng tốt
 - `references/validation-standard.md` — node structure (4-step), field validation rules, binary file spec, UI label naming
 
 ---
 
 ## Output mặc định
 
-- Ticket và spec lưu vào `specs/[tên-node]/final-ticket.md`
+- **Full ticket** (`write-ticket`): lưu vào `specs/[tên-node]/final-ticket.md`
+- **Delta ticket** (`write-user-story`): lưu vào `specs/[tên-node]-[delta-suffix]/final-ticket.md` (ví dụ: `specs/gmail-send-email-add-bcc/final-ticket.md`). Nếu delta introduce error messages mới, tạo thêm `error-message.md` cùng thư mục.
+- **Feature analysis** (`clarify-feature`): lưu vào `specs/[tên-node]/feature-analysis.md` nếu user yêu cầu lưu.
 - Concise, business-first, testable — không dài hơn mức cần thiết
 - Luôn hỏi tối đa 3–5 câu (kèm suggested answer) trước khi viết ticket
+
+## Language Rules (áp dụng cho mọi ticket)
+
+- **Ticket header, Story titles, AC titles:** English
+- **AC body (Given/When/Then):** Vietnamese-English mix được chấp nhận
+- **Error messages:** English only — follow `references/error-message-catalog.md`
+- **Business rules, validation rules, mô tả:** Vietnamese
+- **UI field labels:** Title Case (ví dụ: `AI Provider`, `Account`, `Prompt`)
 
 ---
 
@@ -129,7 +141,7 @@ Các rule này áp dụng cho MỌI ticket — không được bỏ qua:
 - Khi mơ hồ: hỏi 1 câu confirm trước khi chọn skill
 
 **Hành động bắt buộc:**
-1. Đọc `skills/write-user-story.md`.
+1. Đọc `skills/write-user-story/SKILL.md`.
 2. Quy trình: confirm scope là delta → hỏi tối đa 3 câu → chọn depth → viết ticket → lưu file → hỏi review.
 3. Không skip bất kỳ bước nào.
 
@@ -144,6 +156,6 @@ Các rule này áp dụng cho MỌI ticket — không được bỏ qua:
 - Đang ở `clarify-feature` mà user nói "ok viết ticket đi" → kết thúc skill, route sang `write-ticket`/`write-user-story`, không hỏi lại những gì đã làm rõ
 
 **Hành động bắt buộc:**
-1. Đọc `skills/clarify-feature.md`.
+1. Đọc `skills/clarify-feature/SKILL.md`.
 2. Quy trình: diễn đạt lại cách hiểu → tham chiếu existing nodes → phân tích đa chiều → brainstorm options → hỏi quyết định kèm đề xuất → output Feature Analysis → hỏi lưu/handoff.
 3. Không skip bất kỳ bước nào. **Không viết ticket trong skill này.**

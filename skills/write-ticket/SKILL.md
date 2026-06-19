@@ -78,7 +78,7 @@ Sau khi đã lưu file, **bắt buộc hỏi user**:
 
 > "Ticket đã được lưu. Bạn có muốn tôi review và chỉnh lại không?"
 
-Nếu user đồng ý → chạy `skills/review-ticket.md`, sửa trực tiếp vào file. Nếu user từ chối → dừng.
+Nếu user đồng ý → chạy `skills/review-ticket/SKILL.md`, sửa trực tiếp vào file. Nếu user từ chối → dừng.
 
 ---
 
