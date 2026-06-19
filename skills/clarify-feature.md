@@ -68,12 +68,12 @@ Nếu user mô tả còn quá sơ sài để diễn đạt lại → hỏi 1 câ
 
 ### Bước 2: Tham chiếu existing nodes & product context
 
-Đọc `/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/references/existing-nodes.md` để:
+Đọc `references/existing-nodes.md` để:
 - Tìm node/feature tương tự đã có → reuse pattern, reference thay vì sáng tạo mới.
 - Phát hiện logic có thể tái sử dụng (selector, picker, auth, retry...).
 - Tránh đề xuất trùng với cái đã Done.
 
-Luôn giữ `/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/core/product-context.md` trong đầu: end-user-first, simple surface / powerful core, business process clarity, safe by default.
+Luôn giữ `core/product-context.md` trong đầu: end-user-first, simple surface / powerful core, business process clarity, safe by default.
 
 ### Bước 3: Phân tích đa chiều
 
@@ -120,7 +120,7 @@ Sau khi output, hỏi user đúng 2 việc:
 
 > "Bạn muốn mình **lưu lại bản phân tích này** để dùng khi viết ticket không? Và sau khi bạn chốt các quyết định ở trên, mình **viết ticket luôn** chứ?"
 
-- **Nếu user muốn lưu** → lưu vào `/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/specs/[tên-feature]/feature-analysis.md` (lowercase, dấu gạch ngang). Đây là file cầu nối — khi chạy `write-ticket` cho feature này, đọc file này làm input.
+- **Nếu user muốn lưu** → lưu vào `specs/[tên-feature]/feature-analysis.md` (lowercase, dấu gạch ngang). Đây là file cầu nối — khi chạy `write-ticket` cho feature này, đọc file này làm input.
 - **Nếu user muốn viết ticket** → route sang `write-ticket` (hoặc `write-user-story` nếu là delta trên node đã có), dùng các quyết định đã chốt làm input, **không hỏi lại** những gì đã làm rõ ở đây.
 - **Nếu user chỉ muốn thảo luận tiếp** → tiếp tục iterate, không ép lưu/viết.
 

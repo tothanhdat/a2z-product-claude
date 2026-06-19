@@ -68,7 +68,7 @@ N. [Câu hỏi]
 
 ### Bước 3: Tham chiếu existing nodes
 
-Đọc `/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/references/existing-nodes.md` để biết:
+Đọc `references/existing-nodes.md` để biết:
 - Node gốc đã có logic gì để reference.
 - Pattern tương tự đã dùng ở node nào để tái sử dụng wording.
 
@@ -84,24 +84,24 @@ Quyết định viết theo **Minimum** hay **Standard** dựa trên scope:
 
 ### Bước 5: Viết ticket theo template
 
-Dùng template trong section "Output Template" bên dưới. Tuân theo format AC trong `/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/references/ticket-template-lean.md` (Given/When/Then, AC.NN với title bold, dropdown embed table).
+Dùng template trong section "Output Template" bên dưới. Tuân theo format AC trong `references/ticket-template-lean.md` (Given/When/Then, AC.NN với title bold, dropdown embed table).
 
-Tuân theo error message catalog `/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/references/error-message-existed.md` cho các error mới.
+Tuân theo error message catalog `references/error-message-catalog.md` cho các error mới.
 
 ### Bước 6: Lưu file
 
 Lưu ticket vào:
 ```
-/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/specs/[tên-node-hoặc-feature]-[delta-suffix]/final-ticket.md
+specs/[tên-node-hoặc-feature]-[delta-suffix]/final-ticket.md
 ```
 
 **Quy tắc đặt tên thư mục:**
 - Lowercase, dấu gạch ngang.
 - Suffix mô tả delta: `-response-mode-auth`, `-add-bcc-field`, `-quality-option`, etc.
 - Ví dụ:
-  - `/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/specs/human-input-web-form-response-mode-auth/final-ticket.md`
-  - `/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/specs/gmail-send-email-add-bcc/final-ticket.md`
-  - `/Users/ryan/Documents/Claude/Projects/A2Z Product Claude/specs/openai-generate-image-quality-option/final-ticket.md`
+  - `specs/human-input-web-form-response-mode-auth/final-ticket.md`
+  - `specs/gmail-send-email-add-bcc/final-ticket.md`
+  - `specs/openai-generate-image-quality-option/final-ticket.md`
 
 ### Bước 7: Tạo file error-message.md (chỉ khi có error mới)
 
