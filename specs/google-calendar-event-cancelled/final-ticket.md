@@ -156,7 +156,7 @@ And the polling tick continues for remaining calendars in scope
 | status | string | Luôn là "cancelled" | No |
 | was_recurring | boolean | `true` nếu là instance của recurring series | No |
 | updated_at | string | Thời điểm event bị huỷ (ISO 8601) | No |
-| detected_at | string | Thời điểm trigger phát hiện (ISO 8601) | No |
+| timestamp | string | Thời điểm trigger phát hiện (ISO 8601) | No |
 | trigger_mode | string | Luôn là "polling" | No |
 
 ---

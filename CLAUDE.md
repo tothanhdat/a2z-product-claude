@@ -30,10 +30,11 @@ references/
   validation-standard.md
 
 skills/
-  write-ticket/SKILL.md     # Skill: viết full ticket cho node/action/trigger mới
-  write-user-story/SKILL.md # Skill: viết delta ticket cho node đã có
-  clarify-feature/SKILL.md  # Skill: làm rõ / brainstorm feature trước khi viết ticket
-  review-ticket/SKILL.md    # Skill: review ticket đã viết theo 5 nhóm phân tích
+  write-ticket/SKILL.md        # Skill: viết full ticket cho node/action/trigger mới
+  write-user-story/SKILL.md    # Skill: viết delta ticket cho node đã có
+  clarify-feature/SKILL.md     # Skill: làm rõ / brainstorm feature trước khi viết ticket
+  review-ticket/SKILL.md       # Skill: review ticket đã viết theo 5 nhóm phân tích
+  write-concept-demo/SKILL.md  # Skill: viết concept demo workflow từ node/trigger trong sprint
 
 specs/[tên-node]/
   final-ticket.md           # Output ticket sau khi viết xong
@@ -62,6 +63,7 @@ specs/[tên-node]/
 | `write-ticket` | Viết full ticket cho node/action/trigger MỚI hoàn toàn | `skills/write-ticket/SKILL.md` |
 | `write-user-story` | Viết delta ticket cho node/action/trigger đã có | `skills/write-user-story/SKILL.md` |
 | `review-ticket` | Review ticket đã viết, tìm vấn đề feasibility/ambiguity/risk | `skills/review-ticket/SKILL.md` |
+| `write-concept-demo` | Viết concept demo workflow từ node/trigger đã hoàn thành trong sprint, output cho QC và PO | `skills/write-concept-demo/SKILL.md` |
 
 ---
 
@@ -69,7 +71,7 @@ specs/[tên-node]/
 
 - `references/existing-nodes.md` — tránh duplicate, reuse pattern
 - `references/ticket-template-lean.md` — cấu trúc ticket chuẩn (source of truth cho AC format, language rules, validation behavior, error handling)
-- `references/input-output-conventions.md` — quy ước input/output
+- `references/input-output-conventions.md` — quy ước output, reference input field types & validation rules (dùng khi viết ACs)
 - `references/error-message-catalog.md` — catalog error messages
 - `references/sample-good-tickets.md` — ví dụ full ticket chất lượng tốt
 - `references/sample-good-user-stories.md` — ví dụ delta ticket chất lượng tốt
@@ -82,6 +84,7 @@ specs/[tên-node]/
 - **Full ticket** (`write-ticket`): lưu vào `specs/[tên-node]/final-ticket.md`
 - **Delta ticket** (`write-user-story`): lưu vào `specs/[tên-node]-[delta-suffix]/final-ticket.md` (ví dụ: `specs/gmail-send-email-add-bcc/final-ticket.md`). Nếu delta introduce error messages mới, tạo thêm `error-message.md` cùng thư mục.
 - **Feature analysis** (`clarify-feature`): lưu vào `specs/[tên-node]/feature-analysis.md` nếu user yêu cầu lưu.
+- **Concept demo** (`write-concept-demo`): lưu vào `specs/concept-demo-[sprint-name]/concept-demo.md`.
 - Concise, business-first, testable — không dài hơn mức cần thiết
 - Luôn hỏi tối đa 3–5 câu (kèm suggested answer) trước khi viết ticket
 
@@ -103,7 +106,11 @@ Các rule này áp dụng cho MỌI ticket — không được bỏ qua:
 
 2. **Dropdown có default value:** KHÔNG viết AC validation `"{Field} is required."` — field luôn có giá trị, không thể trống.
 
-3. **Dropdown options — Single Source of Truth:** Options chỉ mô tả MỘT LẦN trong AC (embed table). KHÔNG liệt kê lại ở Inputs, Business Rules, hoặc chỗ khác.
+3. **Dropdown options — Single Source of Truth:** Options chỉ mô tả MỘT LẦN trong AC (embed table). KHÔNG liệt kê lại ở Business Rules hoặc chỗ khác.
+
+5. **Không có Inputs section:** Ticket KHÔNG có section "Inputs". Thông tin input fields mô tả trực tiếp trong User Stories/ACs. Chỉ giữ Outputs section.
+
+6. **Thứ tự sections:** Epic Summary → User Stories → Out of Scope → Outputs → Business Rules → Error Handling.
 
 4. **AI nodes (OpenAI, Gemini, Anthropic, AI Generic):** Retry = "Không retry. Chỉ dùng cơ chế retry node của hệ thống." Session ID = "Follow theo standard Ticket MART-1885: Session ID Field Spec - (AI Nodes)."
 
@@ -118,7 +125,7 @@ Các rule này áp dụng cho MỌI ticket — không được bỏ qua:
 **Trigger:** "viết ticket", "write ticket", "tạo ticket", "draft ticket", "ticket cho", "viết user stories", "viết AC cho node", "viết spec cho", "cập nhật lại"
 
 **Hành động bắt buộc:**
-1. Dùng skill `write-ticket`.
+1. Đọc `skills/write-ticket/SKILL.md` (trong project này, không dùng skill bên ngoài).
 2. Quy trình: hỏi câu hỏi → tham chiếu existing nodes → viết ticket → lưu file → hỏi review.
 3. Không skip bất kỳ bước nào.
 
@@ -127,7 +134,7 @@ Các rule này áp dụng cho MỌI ticket — không được bỏ qua:
 **Trigger:** "hãy review", "review ticket", "đánh giá ticket", "kiểm tra ticket", "rà soát ticket", "xem lại ticket", "ticket có ổn không", "ticket này ok chưa"
 
 **Hành động bắt buộc:**
-1. Dùng skill `review-ticket`.
+1. Đọc `skills/review-ticket/SKILL.md` (trong project này, không dùng skill bên ngoài).
 2. Quy trình: xác định ticket → đọc context → phân tích 5 nhóm → output kết quả.
 3. Không skip bất kỳ bước nào.
 
@@ -141,7 +148,7 @@ Các rule này áp dụng cho MỌI ticket — không được bỏ qua:
 - Khi mơ hồ: hỏi 1 câu confirm trước khi chọn skill
 
 **Hành động bắt buộc:**
-1. Đọc `skills/write-user-story/SKILL.md`.
+1. Đọc `skills/write-user-story/SKILL.md` (trong project này, không dùng skill bên ngoài).
 2. Quy trình: confirm scope là delta → hỏi tối đa 3 câu → chọn depth → viết ticket → lưu file → hỏi review.
 3. Không skip bất kỳ bước nào.
 
@@ -156,6 +163,19 @@ Các rule này áp dụng cho MỌI ticket — không được bỏ qua:
 - Đang ở `clarify-feature` mà user nói "ok viết ticket đi" → kết thúc skill, route sang `write-ticket`/`write-user-story`, không hỏi lại những gì đã làm rõ
 
 **Hành động bắt buộc:**
-1. Đọc `skills/clarify-feature/SKILL.md`.
+1. Đọc `skills/clarify-feature/SKILL.md` (trong project này, không dùng skill bên ngoài).
 2. Quy trình: diễn đạt lại cách hiểu → tham chiếu existing nodes → phân tích đa chiều → brainstorm options → hỏi quyết định kèm đề xuất → output Feature Analysis → hỏi lưu/handoff.
+3. Không skip bất kỳ bước nào. **Không viết ticket trong skill này.**
+
+### 5. Write Concept Demo
+
+**Trigger:** "viết concept demo", "concept demo", "demo workflow", "viết concept cho sprint", "demo cho PO", "workflow demo", "concept sprint"
+
+**Phân biệt:**
+- Cần concept workflow thực tế từ node sprint để demo → `write-concept-demo`
+- Cần viết spec/ticket → `write-ticket` hoặc `write-user-story`
+
+**Hành động bắt buộc:**
+1. Đọc `skills/write-concept-demo/SKILL.md` (trong project này, không dùng skill bên ngoài).
+2. Quy trình: hỏi tối đa 4 câu về sprint nodes → phân tích combination → viết concept → lưu file → hỏi có cần thêm/chỉnh không.
 3. Không skip bất kỳ bước nào. **Không viết ticket trong skill này.**

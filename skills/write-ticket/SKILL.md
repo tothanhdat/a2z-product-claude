@@ -61,7 +61,7 @@ N. [Câu hỏi cụ thể]
 
 Viết ticket theo đúng structure và rules trong `references/ticket-template-lean.md` — đây là source of truth cho mọi format convention (AC format, language rules, validation behavior, dropdown SSoT, error handling, AI node exceptions...).
 
-Tham chiếu thêm `references/input-output-conventions.md` cho Inputs/Outputs section và `references/error-message-catalog.md` cho error messages.
+Tham chiếu thêm `references/input-output-conventions.md` cho Outputs section và `references/error-message-catalog.md` cho error messages.
 
 ### Bước 4: Lưu file `final-ticket.md`
 
@@ -86,7 +86,7 @@ Nếu user đồng ý → chạy `skills/review-ticket/SKILL.md`, sửa trực t
 
 - `references/ticket-template-lean.md` — structure, AC format, language rules, fixed templates
 - `references/existing-nodes.md` — node đã có, pattern reuse
-- `references/input-output-conventions.md` — Inputs/Outputs section format
+- `references/input-output-conventions.md` — Outputs section format, Input field types & validation rules (reference khi viết ACs)
 - `references/error-message-catalog.md` — error messages chuẩn
 - `references/sample-good-tickets.md` — ví dụ ticket tốt để đối chiếu
 - `core/memory.md` — decisions & rules đã confirm

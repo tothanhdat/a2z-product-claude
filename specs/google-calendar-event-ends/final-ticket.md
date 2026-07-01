@@ -323,7 +323,7 @@ And the polling tick continues for remaining calendars in scope
 | organizer_email | string | Email của organizer | No |
 | organizer_name | string | Tên organizer nếu có | Yes |
 | event_link | string | Link đến event trong Google Calendar | No |
-| detected_at | string | Thời điểm trigger detect event ended theo ISO 8601 | No |
+| timestamp | string | Thời điểm trigger detect event ended theo ISO 8601 | No |
 | trigger_mode | string | Fixed value: polling | No |
 
 ---

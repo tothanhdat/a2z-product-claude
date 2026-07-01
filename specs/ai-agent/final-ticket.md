@@ -36,10 +36,10 @@ Then hệ thống hiển thị các options sau và pre-select `AI`:
 
 | UI Label | Description |
 |---|---|
-| AI | AI Internal cho workflow automation. |
-| ChatGPT (OpenAI) | Content generation and reasoning. |
-| Claude AI (Anthropic) | Long-document analysis and reasoning. |
-| Google Gemini | Multimodal AI for text and images. |
+| AI | Built-in AI for workflow automation. |
+| ChatGPT (OpenAI) | General-purpose text generation. |
+| Claude AI (Anthropic) | Long-context analysis and reasoning. |
+| Google Gemini | Text reasoning and generation. |
 
 **Note:** Provider identifier (API value) do Dev quyết định, align với convention hiện có của các AI nodes khác.
 

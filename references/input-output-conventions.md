@@ -2,7 +2,9 @@
 
 ## Mục đích
 
-File này định nghĩa conventions chuẩn cho Input fields và Output payload khi viết ticket. AI phải tuân theo các rules này để đảm bảo consistency xuyên suốt platform.
+File này định nghĩa conventions chuẩn cho Output payload khi viết ticket, và cung cấp reference cho Input field types & validation rules (dùng khi viết ACs). AI phải tuân theo các rules này để đảm bảo consistency xuyên suốt platform.
+
+> **Note:** Ticket KHÔNG có section "Inputs" riêng. Thông tin về input fields (type, validation, default) được mô tả trực tiếp trong User Stories/ACs. PART 1 dưới đây là reference để viết ACs chính xác, không phải template cho ticket section.
 
 ---
 
@@ -76,28 +78,7 @@ Mọi node trên platform phải follow fixed 4-step structure:
 
 ---
 
-### 1.6 Input Table Format (for tickets)
-
-Khi viết Inputs section trong ticket, dùng format sau:
-
-**For Actions:**
-
-| Field | Type | Required | Default | Expression | Description |
-|---|---|---|---|---|---|
-| Connection | Connected Account | Yes | None | No | Dùng lại logic Connected Account hiện có. |
-| File ID | Text input | Conditional | None | Yes | Required khi Input Type = File ID. |
-| Speed | Dropdown | No | Normal | No | Options: Slow, Normal, Fast. |
-
-**For Triggers:**
-
-| Field | Type | Required | Default | Mapped Variable | Notes |
-|---|---|---|---|---|---|
-| Connection | Connected Account | Yes | None | No | — |
-| Calendar Selection Mode | Dropdown | Yes | All my Calendars | No | — |
-
----
-
-### 1.7 Input Validation Rules (per type)
+### 1.6 Input Validation Rules (per type)
 
 #### Text Input
 - Max length: define per field

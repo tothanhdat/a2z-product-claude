@@ -218,14 +218,6 @@ Then ...
 
 ---
 
-## Inputs (chỉ field MỚI hoặc thay đổi)
-
-| Field | Type | Required | Default | Manual Input | Expression | Description |
-|---|---|---|---|---|---|---|
-| [Field mới] | ... | ... | ... | ... | ... | [Note ngắn] |
-
----
-
 ## Outputs (chỉ field MỚI nếu có)
 
 | Field | Type | Description | Nullable |

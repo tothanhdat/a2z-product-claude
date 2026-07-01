@@ -179,17 +179,6 @@ Given trigger fires cho new event, When downstream steps đọc output, Then tri
 
 ---
 
-## Inputs
-
-| Field | Type | Required | Default | Static selection | Manual input | Mapped Variable | Notes |
-|---|---|---:|---|---:|---:|---:|---|
-| Connection | Connected Account | Yes | None | Yes | No | No | Dùng lại logic Connected Account hiện có. |
-| Calendar Selection Mode | Dropdown | Yes | All my Calendars | Yes | No | No | Options: All my Calendars, Specific calendars. |
-| Specific Calendars | Multi-select calendar picker | Conditional | None | Yes | No | No | Required khi mode = Specific calendars. Cho phép chọn một hoặc nhiều calendars. |
-| Expand Recurring Events | Toggle | No | Off | Yes | No | No | Dùng lại logic recurring event expansion của trigger "New Event or Update". |
-
----
-
 ## Outputs
 
 | Field | Type | Description |
@@ -211,7 +200,7 @@ Given trigger fires cho new event, When downstream steps đọc output, Then tri
 | event_created_at | string | Thời điểm event được tạo theo ISO 8601 |
 | is_recurring_instance | boolean | Event có phải là instance của recurring event không |
 | recurrence_id | string/null | ID của recurring event master nếu event là instance |
-| detected_at | string | Thời điểm trigger nhận notification theo ISO 8601 |
+| timestamp | string | Thời điểm trigger nhận notification theo ISO 8601 |
 | trigger_mode | string | `instant` để phân biệt với polling triggers |
 
 ---
@@ -408,16 +397,6 @@ Given file đã bị xoá ở execution trước, When workflow chạy lại v�
 - Bulk delete nhiều files.
 - Restore file sau khi xoá.
 - Delete bằng file name, path, hoặc query.
-
----
-
-## Inputs
-
-| Field | Type | Required | Default | Manual Input | Expression | Description |
-|---|---|---:|---|---:|---:|---|
-| File Input Type | enum | Yes | File ID | No | No | Chọn cách xác định file cần xoá: File ID hoặc File URL. |
-| File ID | string | Conditional | None | Yes | Yes | File ID cần xoá. Hiển thị khi File Input Type = File ID. |
-| File URL | string | Conditional | None | Yes | Yes | Google Drive File URL cần xoá. Hiển thị khi File Input Type = File URL. |
 
 ---
 
@@ -688,19 +667,6 @@ Then action fail: "Quota for model {model_name} has been exceeded. Please select
 - Chọn output format — hệ thống fix cứng MP3, không expose trên UI.
 - Custom speed value — chỉ hỗ trợ preset, không cho nhập số tự do.
 - Dynamic variable cho Voice, Speed, Model — cả 3 là dropdown cố định.
-
----
-
-## Inputs
-
-| Field | Type | Required | Default | Manual Input | Expression | Description |
-|---|---|---|---|---|---|---|
-| Connection | Connected Account | Yes | None | No | No | Dùng lại logic Connected Account hiện có của OpenAI integration. |
-| Model | Dropdown | Yes | None (empty) | No | No | Options: TTS-1, TTS-1 HD. |
-| Text | Textarea | Yes | None | Yes | Yes | Text cần chuyển thành speech. Max 4,096 characters. |
-| Voice | Dropdown | No | Alloy | No | No | Options: Alloy, Echo, Fable, Onyx, Nova, Shimmer. |
-| Speed | Dropdown | No | Normal | No | No | Options: Slow, Normal, Fast. |
-| File Name | Text input | Yes | None | Yes | Yes | Tên file MP3 output. Auto-append `.mp3` nếu chưa có. |
 
 ---
 

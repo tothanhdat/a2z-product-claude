@@ -8,10 +8,10 @@
 Cho phép user chọn một calendar cố định để monitor, so that trigger chỉ nhận notifications từ đúng calendar mong muốn.
 
 **Context:**
-Thay thế "Calendar Selection Mode" (dropdown All/Specific) và "Specific Calendars" (multi-select) bằng một trường "Calendar" duy nhất (single-select). Default là calendar đầu tiên trong danh sách API trả về. Holiday calendars và birthday calendars bị exclude khỏi danh sách.
+Thay thế "Calendar Selection Mode" (dropdown All/Specific) và "Specific Calendars" (multi-select) bằng một trường "Calendar" duy nhất (single-select, required, không có default). Holiday calendars và birthday calendars bị exclude khỏi danh sách.
 
 **Expected UI Fields:**
-- Calendar * (single-select, default = first calendar from API)
+- Calendar * (single-select, required, no default)
 
 ---
 
@@ -33,19 +33,21 @@ And excludes holiday calendars và birthday calendars khỏi danh sách.
 
 > Calendar selector dùng lại picker và calendar access logic hiện có của Google Calendar integration.
 
-**AC.02. Calendar default is first calendar from API**
-Given user chưa thay đổi Calendar,
+**AC.02. Calendar field is required with no default**
+Given user chưa chọn Calendar,
 When config panel được mở,
-Then hệ thống tự động pre-select calendar đầu tiên trong danh sách API trả về
+Then Calendar field hiển thị placeholder "Select a calendar",
+And field không có giá trị default,
+And 'Continue' button is disabled,
+And inline validation error hiển thị ngay dưới field: "Calendar is required."
 
 **AC.03. Single calendar selection only**
 Given user mở dropdown Calendar,
 When user chọn một calendar,
 Then chỉ một calendar được selected (không hỗ trợ multi-select),
-And user có thể thay đổi bằng cách chọn lại calendar khác trong dropdown
+And user có thể thay đổi bằng cách chọn lại calendar khác trong dropdown.
 
 **Edge Cases:**
-- Calendar đã chọn bị deleted hoặc revoked access sau khi config: trigger không fire, ghi log warning.
 - User thay đổi Calendar khi trigger đang active: existing webhook stopped, new webhook registered với calendar mới.
 - Connected account không có calendar nào sau khi exclude holiday/birthday calendars: dropdown hiển thị empty state với message "No calendars found for the connected account."
 

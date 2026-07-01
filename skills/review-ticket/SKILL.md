@@ -40,12 +40,12 @@ Khi user yêu cầu review, đánh giá, kiểm tra, hoặc rà soát lại mộ
 ## 5 Nhóm Phân Tích
 
 ### Nhóm 1: Structure & Completeness
-Kiểm tra ticket có đủ sections bắt buộc (Epic Summary, User Stories, Out of Scope, Inputs, Outputs, Business Rules, Error Handling), Story 1 và Story cuối dùng đúng fixed template, không có section thừa (Implementation Notes, In Scope, Success Criteria Summary).
+Kiểm tra ticket có đủ sections bắt buộc (Epic Summary, User Stories, Out of Scope, Outputs, Business Rules, Error Handling), Story 1 và Story cuối dùng đúng fixed template, không có section thừa (Implementation Notes, In Scope, Inputs, Success Criteria Summary).
 
 ### Nhóm 2: Technical Overreach
 Phát hiện ý quá technical — thuộc Engineering quyết định, không phải BA spec. Flag khi thấy: mô tả API call sequence hay HTTP status code ngoài Context block, chỉ định implementation approach (webhook, Redis, background job), mô tả retry/backoff mechanism, database schema, performance/caching detail.
 
-Không flag: API endpoint trong Context block (BA convention của project), error message text cụ thể, field type trong Inputs.
+Không flag: API endpoint trong Context block (BA convention của project), error message text cụ thể.
 
 ### Nhóm 3: Testability
 Phát hiện ý mơ hồ mà QC không đủ dữ liệu để test. Flag khi thấy: AC dùng ngôn ngữ vague ("works correctly", "handles properly", "appropriate error"), Then không mô tả observable outcome, error message không quote chính xác, dropdown AC thiếu embed table UI Label + API Value, required field AC thiếu từ "ngay".
